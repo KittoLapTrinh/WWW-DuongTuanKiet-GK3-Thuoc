@@ -25,6 +25,84 @@
 ![image](https://github.com/user-attachments/assets/80a7693a-a016-4e65-8688-0aaa8a0d7c60)
 ![image](https://github.com/user-attachments/assets/7377a474-847b-4eb5-a100-34d87a3787b5)
 
+### models
+##### LoaiThuoc
+```
+@Entity
+@Table(name = "loaithuoc")
+public class LoaiThuoc {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long maLoai;
+    private String tenLoai;
+
+    @OneToMany(mappedBy = "loaiThuoc", cascade = CascadeType.ALL)
+    private List<Thuoc> thuocs;
+```
+#### Thuoc
+```
+@Entity
+@Table(name = "thuoc")
+@NamedQueries({
+        @NamedQuery(name = "thuoc.getAll", query = "select t from Thuoc t"),
+        @NamedQuery(name = "thuoc.getThuocByLoai", query = "select t from Thuoc t inner join t.loaiThuoc lt where lt.maLoai =: maLoai")
+})
+public class Thuoc {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long maThuoc;
+    private String tenThuoc;
+    private double gia;
+    private LocalDate namSX;
+    @ManyToOne
+    @JoinColumn(name = "maLoai")
+    private LoaiThuoc loaiThuoc;
+```
+### repositories
+#### instance
+##### ConnectDB
+```
+public class ConnectDB {
+    private static ConnectDB instance;
+    EntityManager em;
+
+    private ConnectDB() {
+        em = Persistence.createEntityManagerFactory("default").createEntityManager();
+    }
+
+    public static ConnectDB getInstance() {
+        if (instance == null) {
+            instance = new ConnectDB();
+        }
+        return instance;
+    }
+
+    public EntityManager getEntityManager() {
+        return em;
+    }
+
+    public static void main(String[] args) {
+        ConnectDB.getInstance().getEntityManager();
+    }
+}
+```
+### data
+#### AddData
+```
+public class AddData {
+    public static void main(String[] args) {
+        LoaiThuoc l1 = new LoaiThuoc("Thuoc Cam", null);
+        Thuoc t1 = new Thuoc("Panadol",5000, LocalDate.of(2024, 1, 1), l1);
+        Thuoc t2 = new Thuoc("Aspirin",3000,LocalDate.of(2023, 2, 1), l1);
+        Thuoc t3 = new Thuoc("Ibuprofen",8000,LocalDate.of(2022, 10, 1), l1);
+
+        List<Thuoc> thuocs = List.of(t1, t2, t3);
+        l1.setThuocs(thuocs);
+        LoaiThuocRepository loaiThuocRepository = new LoaiThuocRepository();
+        loaiThuocRepository.insert(l1);
+}
+```
+
 
 
 
