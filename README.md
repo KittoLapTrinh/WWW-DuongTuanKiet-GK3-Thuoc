@@ -14,8 +14,11 @@
 ### Dashboard
 ![image](https://github.com/user-attachments/assets/1c6d8965-298e-4a64-953b-97a80a14cee1)
 
-### Danh sach cac loai thuoc
+### List Loai Thuoc
 ![image](https://github.com/user-attachments/assets/f883475c-58e9-4af4-bc53-605a0376c8d6)
+
+### List Thuoc
+![image](https://github.com/user-attachments/assets/8425382e-a172-448d-bb50-87ce7b966506)
 
 
 
