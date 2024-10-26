@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>Loai Thuoc</h1>
-    <table>
+    <table border="1">
         <thead>
             <tr>
                 <th>MA THUOC</th>

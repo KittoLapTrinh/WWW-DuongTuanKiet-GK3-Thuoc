@@ -9,5 +9,6 @@ public interface ThuocService {
     List<Thuoc> getAllThuoc();
     List<Thuoc> getThuocByLoai(long maLoai);
     boolean insert(Thuoc thuoc);
+    Thuoc getThuocDetail(long maThuoc) throws Exception;
 
 }

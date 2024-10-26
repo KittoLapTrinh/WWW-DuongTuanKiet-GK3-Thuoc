@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>List Thuoc</h1> <br>
-    <table>
+    <table border="1">
         <thead>
             <tr>
                 <th>MA THUOC</th>
@@ -34,7 +34,7 @@
                 <td><%=t.getTenThuoc()%></td>
                 <td><%=t.getGia()%></td>
                 <td><%=t.getNamSX()%></td>
-                <td><%=t.getLoaiThuoc()%></td>
+                <td><%=t.getLoaiThuoc().getMaLoai()%></td>
             </tr>
             <%
                 }

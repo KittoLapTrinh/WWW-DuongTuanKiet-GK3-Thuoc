@@ -17,9 +17,22 @@ public class AddData {
 
         List<Thuoc> thuocs = List.of(t1, t2, t3);
         l1.setThuocs(thuocs);
-
         LoaiThuocRepository loaiThuocRepository = new LoaiThuocRepository();
         loaiThuocRepository.insert(l1);
+
+//        LoaiThuoc l2 = new LoaiThuoc("Thuốc Đau Khớp", null);
+//
+//        // Tạo các thuốc thuộc loại "Thuốc Đau Khớp"
+//        Thuoc t4 = new Thuoc("Diclofenac", 6000, LocalDate.of(2024, 3, 1), l2);
+//        Thuoc t5 = new Thuoc("Naproxen", 7000, LocalDate.of(2024, 4, 1), l2);
+//
+//        // Danh sách thuốc "Thuốc Đau Khớp"
+//        List<Thuoc> thuocs = List.of(t4, t5);
+//        l2.setThuocs(thuocs);
+//        LoaiThuocRepository loaiThuocRepository = new LoaiThuocRepository();
+//        loaiThuocRepository.insert(l2);
+
+
 
 
 
